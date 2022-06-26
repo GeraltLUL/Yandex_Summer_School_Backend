@@ -215,7 +215,7 @@ def delete_id_delete(id_):  # noqa: E501
 
 def imports_post(body=None):  # noqa: E501
     for item in request.json['items']:
-        if item['type'] == "OFFER" and (item['price'] <= '0'):
+        if item['type'] == "OFFER" and item['price'] is None:
                 return make_response({
                     'code': 400,
                     'message': 'Validation Failed'
